@@ -3,7 +3,7 @@ import { readdir, readFile, writeFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 
-const skip = (f) => f === 'sw.js' || f.endsWith('.map') || f.endsWith('.php') || f.endsWith('.woff') || f.startsWith('scss/');
+const skip = (f) => f === 'sw.js' || f === 'robots.txt' || /(\.map|\.woff|\.xml|LICENSE)$/.test(f);
 const toUrl = (f) => (f.endsWith('.html') ? (f === 'index.html' ? '/' : `/${f.slice(0, -5)}`) : `/${f}`);
 
 export default function sw() {

@@ -14,24 +14,31 @@ self.addEventListener('activate', (e) => {
 });
 
 const timeout = (ms) => new Promise((_, reject) => setTimeout(reject, ms));
-const notFound = (path) => (path === '/ms' || path.startsWith('/ms/') ? '/ms/404' : '/404');
+const clean = (p) => {
+    const s = p.replace(/\/index\.html$/, '/').replace(/\.html$/, '');
+    return s.length > 1 ? s.replace(/\/$/, '') : s;
+};
+const notFound = (p) => (p === '/ms' || p.startsWith('/ms/') ? '/ms/404' : '/404');
+const fresh = (req, key) =>
+    Promise.race([fetch(req), timeout(4000)]).then((res) => {
+        if (res.ok && !res.redirected) {
+            const copy = res.clone();
+            caches.open(CACHE).then((c) => c.put(key, copy));
+        }
+        return res;
+    });
 
 self.addEventListener('fetch', (e) => {
     const req = e.request;
     const url = new URL(req.url);
     if (req.method !== 'GET' || url.origin !== location.origin) return;
+    const path = clean(url.pathname);
     if (req.mode === 'navigate') {
-        e.respondWith(
-            Promise.race([fetch(req), timeout(4000)])
-                .then((res) => {
-                    if (res.ok && !res.redirected) {
-                        const copy = res.clone();
-                        caches.open(CACHE).then((c) => c.put(url.pathname, copy));
-                    }
-                    return res;
-                })
-                .catch(async () => (await caches.match(url.pathname)) || caches.match(notFound(url.pathname)))
-        );
+        e.respondWith(fresh(req, path).catch(async () => (await caches.match(path)) || caches.match(notFound(path))));
+        return;
+    }
+    if (/\.(css|js|webmanifest)$/.test(url.pathname) && !url.pathname.startsWith('/_astro/')) {
+        e.respondWith(fresh(req, url.pathname).catch(() => caches.match(url.pathname)));
         return;
     }
     e.respondWith(caches.match(req).then((hit) => hit || fetch(req)));
