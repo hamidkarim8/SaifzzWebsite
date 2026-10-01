@@ -500,3 +500,46 @@
     color: #FFFFFF;
     background: #1EBE5A;
 }
+
+.navbar .navbar-toggler {
+    min-height: 44px;
+}
+
+.navbar .btn-square,
+.footer .btn.btn-square {
+    width: 44px;
+    height: 44px;
+}
+
+.footer .btn.btn-link {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+    margin-bottom: 0;
+}
+
+.page-header .breadcrumb-item a,
+.footer .copyright a {
+    display: inline-block;
+    padding: 12px 4px;
+}
+
+body,
+.text-muted {
+    color: #5F6577 !important;
+}
+
+.btn.btn-primary,
+.btn.btn-primary:hover {
+    color: var(--dark);
+    font-weight: 500;
+}
+
+.navbar .navbar-brand img {
+    width: auto;
+    flex-shrink: 0;
+}
+
+.text-accent {
+    color: #B35500 !important;
+}

@@ -10,9 +10,9 @@ const other = otherLang(lang);
 ---
 <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top px-4 px-lg-5">
     <a href={localePath(lang, 'index')} class="navbar-brand d-flex align-items-center">
-        <span class="h1 m-0"><img class="img-fluid me-3" src="/img/icon/icon-02-primary.png" alt="" width="60" height="60">{site.name}</span>
+        <span class="h1 m-0"><img class="img-fluid me-3" src="/img/icon/icon-02-primary.png" alt="" width="50" height="50">{site.name}</span>
     </a>
-    <a class="btn lang-switch order-lg-last ms-2 ms-lg-3" href={localePath(other, page)} hreflang={other} lang={other} aria-label={d.switchAria}>{d.switchLabel}</a>
+    <a class="btn lang-switch order-lg-last ms-2 ms-lg-3" href={localePath(other, page)} hreflang={other} lang={other} aria-label={`${d.switchLabel}: ${d.switchAria}`}>{d.switchLabel}</a>
     <button type="button" class="navbar-toggler ms-2" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label={d.menu}>
         <span class="navbar-toggler-icon"></span>
     </button>
