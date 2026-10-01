@@ -1,0 +1,43 @@
+---
+import { waLink } from '../config';
+import { t, localePath, type Lang } from '../i18n';
+
+const { lang } = Astro.props as { lang: Lang };
+const d = t(lang);
+const images = ['/img/carousel-1.jpg', '/img/carousel-2.jpg'];
+---
+<div class="container-fluid p-0 mb-5">
+    <div id="header-carousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            {d.hero.slides.map((s, i) => (
+                <div class:list={['carousel-item', { active: i === 0 }]}>
+                    <img class="w-100" src={images[i]} alt="" width="1920" height="1080" fetchpriority={i === 0 ? 'high' : undefined} loading={i === 0 ? undefined : 'lazy'}>
+                    <div class="carousel-caption">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-7 pt-5">
+                                    {i === 0
+                                        ? <h1 class="display-4 text-white mb-4 animated slideInDown">{s.title}</h1>
+                                        : <h2 class="display-4 text-white mb-4 animated slideInDown">{s.title}</h2>}
+                                    <p class="fs-5 text-body mb-4 pb-2 mx-sm-5 animated slideInDown">{s.text}</p>
+                                    <div class="d-flex flex-wrap justify-content-center gap-3 animated slideInDown">
+                                        <a href={waLink()} target="_blank" rel="noopener" class="btn btn-primary py-3 px-5">{d.hero.cta}</a>
+                                        <a href={localePath(lang, 'service')} class="btn btn-outline-light py-3 px-5">{d.hero.cta2}</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            ))}
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#header-carousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">{d.hero.prev}</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#header-carousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">{d.hero.next}</span>
+        </button>
+    </div>
+</div>

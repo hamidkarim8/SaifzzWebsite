@@ -1,75 +1,49 @@
+---
+import Icon from './Icon.astro';
+import { waLink } from '../config';
+import { t, type Lang } from '../i18n';
+
+const { lang, grouped = false } = Astro.props as { lang: Lang; grouped?: boolean };
+const d = t(lang);
+const look: Record<string, { img: string; icon: string }> = {
+    'aircond-install': { img: '/img/service-1.jpg', icon: 'snowflake' },
+    'aircond-service': { img: '/img/service-2.jpg', icon: 'fan' },
+    'aircond-repair': { img: '/img/service-4.jpg', icon: 'tools' },
+    wiring: { img: '/img/service-3.jpg', icon: 'bolt' },
+    'electrical-repair': { img: '/img/service-5.jpg', icon: 'warning' },
+    'lights-fans': { img: '/img/service-6.jpg', icon: 'bulb' },
+};
+const groups = grouped
+    ? (['aircond', 'electrical'] as const).map((g) => ({ title: d.services.groups[g], items: d.services.items.filter((s) => s.group === g) }))
+    : [{ title: '', items: d.services.items }];
+---
 <div class="container-xxl py-5">
     <div class="container">
-        <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
-            <h1 class="display-6 mb-5">We Provide professional Heating & Cooling Services</h1>
+        <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+            <h2 class="display-6 mb-3">{d.services.title}</h2>
+            <p class="mb-5">{d.services.subtitle}</p>
         </div>
-        <div class="row g-4 justify-content-center">
-            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                <div class="service-item">
-                    <img class="img-fluid" src="/img/service-1.jpg" alt="">
-                    <div class="d-flex align-items-center bg-light">
-                        <div class="service-icon flex-shrink-0 bg-primary">
-                            <img class="img-fluid" src="/img/icon/icon-01-light.png" alt="">
+        {groups.map((g) => (
+            <Fragment>
+                {g.title && <h3 class="h4 text-primary mb-4 mt-2">{g.title}</h3>}
+                <div class="row g-4 justify-content-center mb-5">
+                    {g.items.map((s, i) => (
+                        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay={`${0.1 + (i % 3) * 0.2}s`}>
+                            <div class="service-item h-100 d-flex flex-column bg-light">
+                                <img class="img-fluid" src={look[s.id].img} alt="" width="400" height="300" loading="lazy">
+                                <div class="d-flex align-items-center">
+                                    <div class="service-icon flex-shrink-0 bg-primary text-white">
+                                        <Icon name={look[s.id].icon} />
+                                    </div>
+                                    <h4 class="h5 mx-4 mb-0">{s.title}</h4>
+                                </div>
+                                <p class="px-4 pt-3 mb-3">{s.text}</p>
+                                <a class="btn btn-link text-primary px-4 pb-3 mt-auto text-start" href={waLink(`${d.enquiry.greeting} ${s.title}`)} target="_blank" rel="noopener">{d.services.cta} &rarr;</a>
+                            </div>
                         </div>
-                        <a class="h4 mx-4 mb-0" href="">AC Installation</a>
-                    </div>
+                    ))}
                 </div>
-            </div>
-            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                <div class="service-item">
-                    <img class="img-fluid" src="/img/service-2.jpg" alt="">
-                    <div class="d-flex align-items-center bg-light">
-                        <div class="service-icon flex-shrink-0 bg-primary">
-                            <img class="img-fluid" src="/img/icon/icon-02-light.png" alt="">
-                        </div>
-                        <a class="h4 mx-4 mb-0" href="">Cooling Services</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                <div class="service-item">
-                    <img class="img-fluid" src="/img/service-3.jpg" alt="">
-                    <div class="d-flex align-items-center bg-light">
-                        <div class="service-icon flex-shrink-0 bg-primary">
-                            <img class="img-fluid" src="/img/icon/icon-03-light.png" alt="">
-                        </div>
-                        <a class="h4 mx-4 mb-0" href="">Heating Services</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                <div class="service-item">
-                    <img class="img-fluid" src="/img/service-4.jpg" alt="">
-                    <div class="d-flex align-items-center bg-light">
-                        <div class="service-icon flex-shrink-0 bg-primary">
-                            <img class="img-fluid" src="/img/icon/icon-04-light.png" alt="">
-                        </div>
-                        <a class="h4 mx-4 mb-0" href="">Maintenance & Repair</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                <div class="service-item">
-                    <img class="img-fluid" src="/img/service-5.jpg" alt="">
-                    <div class="d-flex align-items-center bg-light">
-                        <div class="service-icon flex-shrink-0 bg-primary">
-                            <img class="img-fluid" src="/img/icon/icon-05-light.png" alt="">
-                        </div>
-                        <a class="h4 mx-4 mb-0" href="">Indoor Air Quality</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                <div class="service-item">
-                    <img class="img-fluid" src="/img/service-6.jpg" alt="">
-                    <div class="d-flex align-items-center bg-light">
-                        <div class="service-icon flex-shrink-0 bg-primary">
-                            <img class="img-fluid" src="/img/icon/icon-06-light.png" alt="">
-                        </div>
-                        <a class="h4 mx-4 mb-0" href="">Annual Inspections</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+            </Fragment>
+        ))}
     </div>
 </div>

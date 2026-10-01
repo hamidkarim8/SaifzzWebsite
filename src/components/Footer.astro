@@ -1,60 +1,54 @@
-<div class="container-fluid bg-dark footer mt-5 pt-5 wow fadeIn" data-wow-delay="0.1s">
+---
+import Icon from './Icon.astro';
+import { site, phoneHref, waLink } from '../config';
+import { t, localePath, type Lang, type Page } from '../i18n';
+
+const { lang } = Astro.props as { lang: Lang };
+const d = t(lang);
+const links: Page[] = ['index', 'about', 'service', 'contact'];
+const socials = [
+    { href: waLink(), icon: 'whatsapp', label: 'WhatsApp' },
+    { href: site.tiktok, icon: 'tiktok', label: 'TikTok' },
+    { href: site.facebook, icon: 'facebook', label: 'Facebook' },
+    { href: site.instagram, icon: 'instagram', label: 'Instagram' },
+].filter((s) => s.href);
+---
+<footer class="container-fluid bg-dark footer mt-5 pt-5">
     <div class="container py-5">
         <div class="row g-5">
-            <div class="col-md-6">
-                <h1 class="text-white mb-4"><img class="img-fluid me-3" src="/img/icon/icon-02-light.png" alt="">Saifzz Aircond Electrical</h1>
-                <span>Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit.</span>
-            </div>
-            <div class="col-md-6">
-                <h5 class="text-light mb-4">Newsletter</h5>
-                <p>Clita erat ipsum et lorem et sit, sed stet lorem sit clita.</p>
-                <div class="position-relative">
-                    <input class="form-control bg-transparent w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
-                    <button type="button" class="btn btn-primary py-2 px-3 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
+            <div class="col-lg-5 col-md-12">
+                <p class="h3 text-white mb-4 footer-brand"><img class="img-fluid me-3" src="/img/icon/icon-02-light.png" alt="" width="60" height="60">{site.name}</p>
+                <p>{d.footer.about}</p>
+                <div class="d-flex gap-2">
+                    {socials.map((s) => (
+                        <a class="btn btn-square rounded-circle" href={s.href} target="_blank" rel="noopener" aria-label={s.label}><Icon name={s.icon} /></a>
+                    ))}
                 </div>
             </div>
-            <div class="col-lg-3 col-md-6">
-                <h5 class="text-light mb-4">Get In Touch</h5>
-                <p><i class="fa fa-map-marker-alt me-3"></i>123 Street, New York, USA</p>
-                <p><i class="fa fa-phone-alt me-3"></i>+012 345 67890</p>
-                <p><i class="fa fa-envelope me-3"></i>info@example.com</p>
+            <div class="col-lg-4 col-md-6">
+                <h2 class="h5 text-light mb-4">{d.footer.contactTitle}</h2>
+                <p><a class="footer-contact" href={phoneHref}><Icon name="phone" class="me-3" />{site.phone}</a></p>
+                <p><a class="footer-contact" href={waLink()} target="_blank" rel="noopener"><Icon name="whatsapp" class="me-3" />WhatsApp</a></p>
+                {site.email && <p><a class="footer-contact" href={`mailto:${site.email}`}><Icon name="envelope" class="me-3" />{site.email}</a></p>}
+                <p><Icon name="location" class="me-3" />{site.area}</p>
+                <p><Icon name="clock" class="me-3" />{d.contact.hours}</p>
             </div>
             <div class="col-lg-3 col-md-6">
-                <h5 class="text-light mb-4">Our Services</h5>
-                <a class="btn btn-link" href="">AC Installation</a>
-                <a class="btn btn-link" href="">Cooling Services</a>
-                <a class="btn btn-link" href="">Heating Services</a>
-                <a class="btn btn-link" href="">Annual Inspections</a>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <h5 class="text-light mb-4">Quick Links</h5>
-                <a class="btn btn-link" href="">About Us</a>
-                <a class="btn btn-link" href="">Contact Us</a>
-                <a class="btn btn-link" href="">Our Services</a>
-                <a class="btn btn-link" href="">Terms & Condition</a>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <h5 class="text-light mb-4">Follow Us</h5>
-                <div class="d-flex">
-                    <a class="btn btn-square rounded-circle me-1" href=""><i class="fab fa-twitter"></i></a>
-                    <a class="btn btn-square rounded-circle me-1" href=""><i class="fab fa-facebook-f"></i></a>
-                    <a class="btn btn-square rounded-circle me-1" href=""><i class="fab fa-youtube"></i></a>
-                    <a class="btn btn-square rounded-circle me-1" href=""><i class="fab fa-linkedin-in"></i></a>
-                </div>
+                <h2 class="h5 text-light mb-4">{d.footer.linksTitle}</h2>
+                {links.map((p) => <a class="btn btn-link" href={localePath(lang, p)}>{d.nav[p]}</a>)}
             </div>
         </div>
     </div>
     <div class="container-fluid copyright">
         <div class="container">
             <div class="row">
-                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                    &copy; <a href="#">Your Site Name</a>, All Right Reserved.
+                <div class="col-md-8 text-center text-md-start mb-2 mb-md-0">
+                    &copy; {new Date().getFullYear()} {site.name}. {d.footer.rights}
                 </div>
-                <div class="col-md-6 text-center text-md-end">
-                    <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
-                    Designed By <a href="https://htmlcodex.com">HTML Codex</a>
+                <div class="col-md-4 text-center text-md-end small">
+                    {d.footer.credit} <a href="https://htmlcodex.com" rel="noopener">HTML Codex</a>
                 </div>
             </div>
         </div>
     </div>
-</div>
+</footer>

@@ -5,19 +5,31 @@ import '@fontsource/roboto/latin-700.css';
 import '@fontsource/roboto-slab/latin-400.css';
 import '@fontsource/roboto-slab/latin-600.css';
 import '@fontsource/roboto-slab/latin-800.css';
-import Topbar from '../components/Topbar.astro';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
 import Icon from '../components/Icon.astro';
-const { active } = Astro.props;
+import { t, localePath, type Lang, type Page } from '../i18n';
+
+const { lang, page } = Astro.props as { lang: Lang; page: Page };
+const d = t(lang);
+const meta = d.meta[page];
+const url = (l: Lang) => new URL(localePath(l, page), Astro.site).href;
 ---
 <!DOCTYPE html>
-<html lang="en">
+<html lang={lang}>
 <head>
     <meta charset="utf-8">
-    <title>Saifzz Aircond Electrical</title>
+    <title>{meta.title}</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="" name="description">
+    <meta content={meta.description} name="description">
+    {page !== '404' && (
+        <Fragment>
+            <link rel="canonical" href={url(lang)}>
+            <link rel="alternate" hreflang="en" href={url('en')}>
+            <link rel="alternate" hreflang="ms" href={url('ms')}>
+            <link rel="alternate" hreflang="x-default" href={url('en')}>
+        </Fragment>
+    )}
     <link href="/favicon.svg" rel="icon" type="image/svg+xml">
     <link href="/favicon.ico" rel="icon" sizes="32x32">
     <link href="/apple-touch-icon.png" rel="apple-touch-icon">
@@ -27,11 +39,12 @@ const { active } = Astro.props;
     <link href="/css/style.css" rel="stylesheet">
 </head>
 <body>
-<Topbar />
-<Navbar active={active} />
+<Navbar lang={lang} page={page} />
+<main>
 <slot />
-<Footer />
-<a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top" aria-label="Back to top"><Icon name="arrow-up" /></a>
+</main>
+<Footer lang={lang} />
+<a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top" aria-label={d.backToTop}><Icon name="arrow-up" /></a>
 <script is:inline src="/lib/jquery/jquery.min.js"></script>
 <script is:inline src="/lib/bootstrap/bootstrap.bundle.min.js"></script>
 <script is:inline src="/lib/wow/wow.min.js"></script>

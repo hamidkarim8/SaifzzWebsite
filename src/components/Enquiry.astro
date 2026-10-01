@@ -1,0 +1,58 @@
+---
+import { site } from '../config';
+import { t, type Lang } from '../i18n';
+
+const { lang, id = 'enquiry' } = Astro.props as { lang: Lang; id?: string };
+const d = t(lang);
+---
+<div class="container-fluid overflow-hidden my-5 px-lg-0" id={id}>
+    <div class="container quote px-lg-0">
+        <div class="row g-0 mx-lg-0">
+            <div class="col-lg-6 quote-text" data-parallax="scroll" data-image-src="/img/carousel-1.jpg">
+                <div class="h-100 px-4 px-sm-5 ps-lg-0 wow fadeIn" data-wow-delay="0.1s">
+                    <h2 class="text-white mb-4">{d.enquiry.title}</h2>
+                    <p class="text-light mb-0">{d.enquiry.text}</p>
+                </div>
+            </div>
+            <div class="col-lg-6 quote-form" data-parallax="scroll" data-image-src="/img/carousel-2.jpg">
+                <div class="h-100 px-4 px-sm-5 pe-lg-0 wow fadeIn" data-wow-delay="0.5s">
+                    <form class="wa-form bg-white p-4 p-sm-5" data-wa={site.whatsapp} data-greeting={d.enquiry.greeting}>
+                        <div class="row g-3">
+                            <div class="col-sm-6">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id={`${id}-name`} name="name" placeholder={d.enquiry.name} required autocomplete="name">
+                                    <label for={`${id}-name`}>{d.enquiry.name}</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id={`${id}-area`} name="area" placeholder={d.enquiry.area} autocomplete="address-level2">
+                                    <label for={`${id}-area`}>{d.enquiry.area}</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-floating">
+                                    <select class="form-select" id={`${id}-service`} name="service" required>
+                                        <option value="" selected disabled>{d.enquiry.servicePlaceholder}</option>
+                                        {d.services.items.map((s) => <option value={s.title}>{s.title}</option>)}
+                                    </select>
+                                    <label for={`${id}-service`}>{d.enquiry.service}</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-floating">
+                                    <textarea class="form-control" id={`${id}-message`} name="message" placeholder={d.enquiry.message} style="height: 100px"></textarea>
+                                    <label for={`${id}-message`}>{d.enquiry.message}</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <button class="btn btn-primary py-3 px-5" type="submit">{d.enquiry.submit}</button>
+                                <p class="small text-muted mt-3 mb-0">{d.enquiry.note}</p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

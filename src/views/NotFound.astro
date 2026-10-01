@@ -1,0 +1,25 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHeader from '../components/PageHeader.astro';
+import Icon from '../components/Icon.astro';
+import { t, localePath, type Lang } from '../i18n';
+
+const { lang } = Astro.props as { lang: Lang };
+const d = t(lang);
+---
+<Base lang={lang} page="404">
+<PageHeader lang={lang} title="404" />
+<div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
+    <div class="container text-center">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <Icon name="warning" class="display-1 text-primary" />
+                <p class="display-1">404</p>
+                <h2 class="mb-4">{d.notFound.title}</h2>
+                <p class="mb-4">{d.notFound.text}</p>
+                <a class="btn btn-primary py-3 px-5" href={localePath(lang, 'index')}>{d.notFound.back}</a>
+            </div>
+        </div>
+    </div>
+</div>
+</Base>

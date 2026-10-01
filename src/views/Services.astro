@@ -1,0 +1,14 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHeader from '../components/PageHeader.astro';
+import Service from '../components/Service.astro';
+import Enquiry from '../components/Enquiry.astro';
+import { t, type Lang } from '../i18n';
+
+const { lang } = Astro.props as { lang: Lang };
+---
+<Base lang={lang} page="service">
+<PageHeader lang={lang} title={t(lang).nav.service} />
+<Service lang={lang} grouped />
+<Enquiry lang={lang} />
+</Base>

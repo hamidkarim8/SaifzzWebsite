@@ -1,0 +1,162 @@
+import type { en } from './en';
+
+export const ms: typeof en = {
+  htmlLang: 'ms',
+  switchLabel: 'EN',
+  switchAria: 'Read in English',
+  menu: 'Buka menu navigasi',
+  backToTop: 'Kembali ke atas',
+  waFloat: 'Berbual dengan kami di WhatsApp',
+  meta: {
+    index: {
+      title: '{brand} | Servis Penghawa Dingin & Elektrik',
+      description: 'Pemasangan, servis dan pembaikan penghawa dingin (aircond) serta pendawaian dan pembaikan elektrik di {area}. Respons pantas, harga berpatutan. WhatsApp kami hari ini.',
+    },
+    about: {
+      title: 'Tentang Kami | {brand}',
+      description: 'Kenali {brand}, juruteknik tempatan untuk kerja penghawa dingin dan elektrik di rumah, kedai dan pejabat sekitar {area}.',
+    },
+    service: {
+      title: 'Perkhidmatan | {brand}',
+      description: 'Pemasangan, servis, cucian kimia, diagnosis kerosakan dan pembaikan penghawa dingin. Pendawaian, pendawaian semula, pembaikan litar pintas dan bekalan elektrik terputus, serta pemasangan lampu dan kipas.',
+    },
+    contact: {
+      title: 'Hubungi Kami | {brand}',
+      description: 'Telefon atau WhatsApp {brand} untuk mendapatkan sebut harga. Kami berkhidmat di {area}, Isnin hingga Sabtu.',
+    },
+    '404': {
+      title: 'Halaman Tidak Dijumpai | {brand}',
+      description: 'Halaman yang anda cari tidak wujud.',
+    },
+  },
+  nav: { index: 'Utama', about: 'Tentang Kami', service: 'Perkhidmatan', contact: 'Hubungi Kami' },
+  hero: {
+    slides: [
+      {
+        title: 'Rumah Sejuk, Selesa & Selamat',
+        text: 'Perkhidmatan penghawa dingin dan elektrik yang boleh diharap: pemasangan, servis, diagnosis kerosakan dan pembaikan di sekitar {area}.',
+      },
+      {
+        title: 'Penghawa Dingin Tidak Sejuk? Elektrik Kerap Terputus?',
+        text: 'Bocor air, unit berbunyi bising atau bilik tiada bekalan elektrik? Juruteknik kami akan mengenal pasti puncanya dan membaikinya dengan betul pada kali pertama lagi.',
+      },
+    ],
+    cta: 'WhatsApp Kami',
+    cta2: 'Perkhidmatan Kami',
+    prev: 'Slaid sebelumnya',
+    next: 'Slaid seterusnya',
+  },
+  about: {
+    title: 'Pakar Penghawa Dingin & Elektrik Tempatan Anda',
+    points: ['Juruteknik Berpengalaman', 'Harga Telus & Berpatutan'],
+    text: '{brand} menguruskan kerja penghawa dingin dan elektrik untuk rumah, kedai dan pejabat di sekitar {area}. Daripada memasang unit baharu hinggalah mengesan litar yang kerap terputus, kami tiba tepat pada masanya, menerangkan masalah dengan jelas dan memberikan sebut harga sebelum kerja dimulakan. Tiada caj tersembunyi dan tiada alat ganti yang tidak perlu, hanya kerja yang kemas dan boleh diharap.',
+    imgAlt: 'Juruteknik sedang menyervis penghawa dingin',
+  },
+  stats: {
+    customers: 'Pelanggan Berpuas Hati',
+    jobs: 'Kerja Disiapkan',
+    years: 'Tahun Pengalaman',
+    days: 'Hari Seminggu',
+  },
+  why: {
+    title: 'Mengapa Pelanggan Memilih Kami',
+    text: 'Kami menjaga setiap rumah seperti rumah kami sendiri. Inilah yang boleh anda harapkan apabila menghubungi kami.',
+    items: [
+      { title: 'Respons Pantas', text: 'Balasan segera di WhatsApp dan temu janji pada hari yang sama atau keesokan harinya bagi kebanyakan kerja.' },
+      { title: 'Harga Jujur', text: 'Kami memeriksa dahulu, menerangkan kerosakan dan memberikan harga sebelum sebarang kerja dimulakan.' },
+      { title: 'Kerja Dijamin', text: 'Mutu kerja yang kemas dan selamat, dengan jaminan bagi kerja pembaikan dan pemasangan kami.' },
+    ],
+    imgAlt: 'Juruteknik penghawa dingin sedang bekerja',
+  },
+  services: {
+    title: 'Perkhidmatan Penghawa Dingin & Elektrik',
+    subtitle: 'Satu panggilan untuk masalah penyejukan dan elektrik di rumah atau di tempat kerja.',
+    groups: { aircond: 'Penghawa Dingin', electrical: 'Elektrik' },
+    cta: 'Tanya di WhatsApp',
+    items: [
+      {
+        id: 'aircond-install',
+        group: 'aircond',
+        title: 'Pemasangan Penghawa Dingin',
+        text: 'Pembekalan dan pemasangan unit dinding, kaset dan inverter, termasuk kerja paip, pendakap dan saliran yang dibuat dengan betul.',
+      },
+      {
+        id: 'aircond-service',
+        group: 'aircond',
+        title: 'Servis & Cucian Penghawa Dingin',
+        text: 'Servis am dan cucian kimia untuk membuang kotoran dan kulat supaya penghawa dingin anda lebih cepat sejuk dan menjimatkan elektrik.',
+      },
+      {
+        id: 'aircond-repair',
+        group: 'aircond',
+        title: 'Diagnosis & Pembaikan Penghawa Dingin',
+        text: 'Tidak sejuk, bocor air, berbunyi bising atau tidak boleh dihidupkan? Kami mengenal pasti kerosakan, menambah gas dan menggantikan alat ganti yang rosak.',
+      },
+      {
+        id: 'wiring',
+        group: 'electrical',
+        title: 'Pendawaian & Pendawaian Semula',
+        text: 'Pendawaian baharu, pendawaian semula rumah lama, penambahan soket kuasa dan naik taraf papan agihan (DB) mengikut piawaian keselamatan.',
+      },
+      {
+        id: 'electrical-repair',
+        group: 'electrical',
+        title: 'Diagnosis & Pembaikan Elektrik',
+        text: 'Bekalan elektrik kerap terputus (trip), litar pintas, bilik tiada bekalan elektrik atau terhidu bau terbakar? Kami mengesan punca kerosakan dan memastikan keadaan selamat.',
+      },
+      {
+        id: 'lights-fans',
+        group: 'electrical',
+        title: 'Lampu, Kipas & Soket Kuasa',
+        text: 'Pemasangan dan penggantian kipas siling, lampu, suis dan soket dengan kemas dan selamat.',
+      },
+    ],
+  },
+  enquiry: {
+    title: 'Dapatkan Sebut Harga Segera',
+    text: 'Beritahu kami keperluan anda dan kami akan membalas di WhatsApp, biasanya dalam masa sejam pada waktu bekerja.',
+    name: 'Nama Anda',
+    service: 'Perkhidmatan Diperlukan',
+    servicePlaceholder: 'Pilih perkhidmatan',
+    area: 'Kawasan Anda',
+    message: 'Terangkan masalah (pilihan)',
+    submit: 'Hantar melalui WhatsApp',
+    greeting: 'Hai {brand}, saya ingin mendapatkan sebut harga.',
+    note: 'Butang ini akan membuka WhatsApp dengan mesej anda yang sedia untuk dihantar.',
+  },
+  testimonials: {
+    title: 'Apa Kata Pelanggan Kami',
+    items: [
+      { text: 'Penghawa dingin di bilik utama kami tidak sejuk berminggu-minggu. Mereka menemui kebocoran gas, membaikinya dan menerangkan semuanya. Sangat berpuas hati.', name: 'Aina', area: 'Shah Alam' },
+      { text: 'Saya hubungi mereka pada waktu pagi kerana elektrik kerap terputus, dan mereka datang pada petang yang sama untuk menyelesaikannya. Harganya pun berpatutan.', name: 'Raj', area: 'Petaling Jaya' },
+      { text: 'Cucian kimia untuk tiga unit. Kerjanya sangat bersih dan mereka menutup perabot terlebih dahulu. Pasti akan menggunakan khidmat mereka lagi.', name: 'Mei Ling', area: 'Cheras' },
+      { text: 'Mereka membuat pendawaian semula rumah teres lama kami. Kerja kemas, siap tepat pada masanya dan tiada caj mengejut.', name: 'Hafiz', area: 'Kajang' },
+    ],
+  },
+  contact: {
+    title: 'Hubungi Kami',
+    heading: 'Berbincang dengan Kami',
+    text: 'Telefon, WhatsApp atau hantarkan butiran anda kepada kami. Kami akan membalas secepat mungkin.',
+    call: 'Telefon Kami',
+    whatsapp: 'WhatsApp',
+    tiktok: 'TikTok',
+    email: 'E-mel',
+    hoursTitle: 'Waktu Operasi',
+    hours: 'Isnin hingga Sabtu, 9.00 pagi hingga 6.00 petang',
+    areaTitle: 'Kawasan Perkhidmatan',
+    mapTitle: 'Peta kawasan perkhidmatan kami',
+  },
+  footer: {
+    about: 'Perkhidmatan penghawa dingin dan elektrik untuk rumah, kedai dan pejabat di sekitar {area}.',
+    contactTitle: 'Hubungi Kami',
+    linksTitle: 'Pautan Pantas',
+    followTitle: 'Ikuti Kami',
+    rights: 'Hak cipta terpelihara.',
+    credit: 'Templat oleh',
+  },
+  notFound: {
+    title: 'Halaman Tidak Dijumpai',
+    text: 'Maaf, halaman yang anda cari tidak wujud atau telah dipindahkan.',
+    back: 'Kembali ke Laman Utama',
+  },
+};

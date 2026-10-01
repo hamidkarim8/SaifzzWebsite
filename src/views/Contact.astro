@@ -1,0 +1,63 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHeader from '../components/PageHeader.astro';
+import Enquiry from '../components/Enquiry.astro';
+import Icon from '../components/Icon.astro';
+import { site, phoneHref, waLink } from '../config';
+import { t, type Lang } from '../i18n';
+
+const { lang } = Astro.props as { lang: Lang };
+const d = t(lang);
+const actions = [
+    { href: phoneHref, icon: 'phone', label: d.contact.call, value: site.phone, external: false },
+    { href: waLink(), icon: 'whatsapp', label: d.contact.whatsapp, value: site.phone, external: true },
+    { href: site.tiktok, icon: 'tiktok', label: d.contact.tiktok, value: 'TikTok', external: true },
+];
+const mapSrc = `https://www.google.com/maps?q=${encodeURIComponent(site.mapQuery)}&output=embed`;
+---
+<Base lang={lang} page="contact">
+<PageHeader lang={lang} title={d.contact.title} />
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+            <h2 class="display-6 mb-3">{d.contact.heading}</h2>
+            <p class="mb-5">{d.contact.text}</p>
+        </div>
+        <div class="row g-4 mb-5">
+            {actions.map((a) => (
+                <div class="col-md-4 wow fadeInUp" data-wow-delay="0.2s">
+                    <a class="contact-card d-flex align-items-center bg-light p-4 h-100 text-dark" href={a.href} target={a.external ? '_blank' : undefined} rel={a.external ? 'noopener' : undefined}>
+                        <span class="btn-lg-square bg-primary rounded-circle text-white flex-shrink-0 me-3"><Icon name={a.icon} /></span>
+                        <span>
+                            <span class="h5 d-block mb-1">{a.label}</span>
+                            <span class="text-muted">{a.value}</span>
+                        </span>
+                    </a>
+                </div>
+            ))}
+        </div>
+        <div class="row g-5">
+            <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
+                <div class="d-flex mb-4">
+                    <span class="btn-lg-square bg-primary rounded-circle text-white flex-shrink-0 me-3"><Icon name="clock" /></span>
+                    <div>
+                        <h3 class="h5">{d.contact.hoursTitle}</h3>
+                        <p class="mb-0">{d.contact.hours}</p>
+                    </div>
+                </div>
+                <div class="d-flex">
+                    <span class="btn-lg-square bg-primary rounded-circle text-white flex-shrink-0 me-3"><Icon name="location" /></span>
+                    <div>
+                        <h3 class="h5">{d.contact.areaTitle}</h3>
+                        <p class="mb-0">{site.area}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 wow fadeIn" data-wow-delay="0.3s" style="min-height: 350px;">
+                <iframe class="w-100 h-100 border-0" style="min-height: 350px;" src={mapSrc} title={d.contact.mapTitle} loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+<Enquiry lang={lang} />
+</Base>
