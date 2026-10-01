@@ -1,0 +1,36 @@
+---
+const { active } = Astro.props;
+const dropdown = ["feature", "quote", "team", "testimonial", "404"];
+---
+<nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top px-4 px-lg-5">
+    <a href="/" class="navbar-brand d-flex align-items-center">
+        <h1 class="m-0"><img class="img-fluid me-3" src="/img/icon/icon-02-primary.png" alt="">AirCon</h1>
+    </a>
+    <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <div class="navbar-nav mx-auto bg-light pe-4 py-3 py-lg-0">
+            <a href="/" class:list={["nav-item nav-link", { active: active === "home" }]}>Home</a>
+            <a href="/about" class:list={["nav-item nav-link", { active: active === "about" }]}>About Us</a>
+            <a href="/service" class:list={["nav-item nav-link", { active: active === "service" }]}>Our Services</a>
+            <div class="nav-item dropdown">
+                <a href="#" class:list={["nav-link dropdown-toggle", { active: dropdown.includes(active) }]} data-bs-toggle="dropdown">Pages</a>
+                <div class="dropdown-menu bg-light border-0 m-0">
+                    <a href="/feature" class:list={["dropdown-item", { active: active === "feature" }]}>Features</a>
+                    <a href="/quote" class:list={["dropdown-item", { active: active === "quote" }]}>Free Quote</a>
+                    <a href="/team" class:list={["dropdown-item", { active: active === "team" }]}>Our Team</a>
+                    <a href="/testimonial" class:list={["dropdown-item", { active: active === "testimonial" }]}>Testimonial</a>
+                    <a href="/404" class:list={["dropdown-item", { active: active === "404" }]}>404 Page</a>
+                </div>
+            </div>
+            <a href="/contact" class:list={["nav-item nav-link", { active: active === "contact" }]}>Contact Us</a>
+        </div>
+        <div class="h-100 d-lg-inline-flex align-items-center d-none">
+            <a class="btn btn-square rounded-circle bg-light text-primary me-2" href=""><i class="fab fa-facebook-f"></i></a>
+            <a class="btn btn-square rounded-circle bg-light text-primary me-2" href=""><i class="fab fa-twitter"></i></a>
+            <a class="btn btn-square rounded-circle bg-light text-primary me-2" href=""><i class="fab fa-linkedin-in"></i></a>
+            <a class="btn btn-square rounded-circle bg-light text-primary me-0" href=""><i class="fab fa-instagram"></i></a>
+        </div>
+    </div>
+</nav>
