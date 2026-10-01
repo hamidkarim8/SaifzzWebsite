@@ -1,15 +1,18 @@
 export const site = {
   name: 'Saifzz Aircond Electrical',
-  phone: '+60 00-000 0000',
-  whatsapp: '60000000000',
+  live: false,
+  phone: '+60 16-281 5887',
+  whatsapp: '60162815887',
   email: '',
   area: 'Kuala Lumpur & Selangor',
-  tiktok: 'https://www.tiktok.com/',
+  tiktok: 'https://www.tiktok.com/@aircondservicekajang',
   facebook: '',
   instagram: '',
-  mapQuery: 'Kuala Lumpur',
-  stats: { customers: 500, jobs: 1200, years: 5, days: 6 },
+  mapQuery: 'Selangor, Malaysia',
+  stats: { customers: 500, jobs: 1200, years: 10 },
 };
 
 export const phoneHref = `tel:+${site.phone.replace(/\D/g, '')}`;
+export const waDisplay = `+${site.whatsapp.slice(0, 2)} ${site.whatsapp.slice(2, 4)}-${site.whatsapp.slice(4, 7)} ${site.whatsapp.slice(7)}`;
+export const tiktokHandle = site.tiktok.match(/@[\w.]+/)?.[0] ?? 'TikTok';
 export const waLink = (text = '') => `https://wa.me/${site.whatsapp}${text ? `?text=${encodeURIComponent(text)}` : ''}`;

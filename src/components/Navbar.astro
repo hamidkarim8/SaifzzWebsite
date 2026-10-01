@@ -1,18 +1,22 @@
 ---
 import Icon from './Icon.astro';
 import { site, waLink } from '../config';
-import { t, localePath, otherLang, type Lang, type Page } from '../i18n';
+import { t, localePath, type Lang, type Page } from '../i18n';
 
 const { lang, page } = Astro.props as { lang: Lang; page: Page };
 const d = t(lang);
 const links: Page[] = ['index', 'about', 'service', 'contact'];
-const other = otherLang(lang);
+const langs: { code: Lang; label: string }[] = [{ code: 'en', label: 'EN' }, { code: 'ms', label: 'BM' }];
 ---
 <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top px-4 px-lg-5">
     <a href={localePath(lang, 'index')} class="navbar-brand d-flex align-items-center">
         <span class="h1 m-0"><img class="img-fluid me-3" src="/img/icon/icon-02-primary.png" alt="" width="50" height="50">{site.name}</span>
     </a>
-    <a class="btn lang-switch order-lg-last ms-2 ms-lg-3" href={localePath(other, page)} hreflang={other} lang={other} aria-label={`${d.switchLabel}: ${d.switchAria}`}>{d.switchLabel}</a>
+    <div class="lang-toggle order-lg-last ms-auto ms-lg-3" role="group" aria-label={d.langGroup}>
+        {langs.map((l) => l.code === lang
+            ? <span class="lang-opt active" aria-current="true">{l.label}</span>
+            : <a class="lang-opt lang-switch" href={localePath(l.code, page)} hreflang={l.code} lang={l.code} aria-label={`${l.label}: ${d.switchAria}`}>{l.label}</a>)}
+    </div>
     <button type="button" class="navbar-toggler ms-2" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label={d.menu}>
         <span class="navbar-toggler-icon"></span>
     </button>

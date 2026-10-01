@@ -99,18 +99,33 @@
     color: var(--primary);
 }
 
-.navbar .lang-switch {
-    min-width: 48px;
-    min-height: 44px;
-    font-weight: 700;
-    color: var(--secondary);
-    border: 2px solid var(--primary);
-    border-radius: 22px;
+.navbar .lang-toggle {
+    display: inline-flex;
+    padding: 2px;
+    border-radius: 24px;
+    background: var(--light);
+    border: 1px solid #DEE2E6;
 }
 
-.navbar .lang-switch:hover {
+.navbar .lang-toggle .lang-opt {
+    min-width: 44px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--secondary);
+}
+
+.navbar .lang-toggle .lang-opt.active {
+    background: var(--secondary);
     color: #FFFFFF;
-    background: var(--primary);
+}
+
+.navbar .lang-toggle a.lang-opt:hover {
+    background: #E2E6EA;
 }
 
 @media (max-width: 991.98px) {
@@ -542,4 +557,63 @@ body,
 
 .text-accent {
     color: #B35500 !important;
+}
+
+.btn.btn-whatsapp {
+    background: #25D366;
+    border-color: #25D366;
+    color: var(--dark);
+    font-weight: 500;
+}
+
+.btn.btn-whatsapp:hover {
+    background: #1EBE5A;
+    border-color: #1EBE5A;
+    color: var(--dark);
+}
+
+.page-header .breadcrumb {
+    align-items: center;
+}
+
+.page-header .breadcrumb-item {
+    display: flex;
+    align-items: center;
+}
+
+.page-header .breadcrumb-item + .breadcrumb-item::before {
+    float: none;
+}
+
+@media (min-width: 769px) {
+    #header-carousel .carousel-item {
+        height: min(75vh, 680px);
+        min-height: 480px;
+    }
+
+    #header-carousel .carousel-item img {
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+.contact-card > span:last-child {
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
+@media (max-width: 399.98px) {
+    .navbar.px-4 {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+
+    .navbar .navbar-brand img {
+        max-height: 36px;
+        margin-right: .5rem !important;
+    }
+
+    .navbar .navbar-brand .h1 {
+        font-size: 1rem;
+    }
 }

@@ -5,6 +5,7 @@ export const ms: typeof en = {
   switchLabel: 'EN',
   switchAria: 'Read in English',
   menu: 'Buka menu navigasi',
+  langGroup: 'Bahasa',
   backToTop: 'Kembali ke atas',
   waFloat: 'Berbual dengan kami di WhatsApp',
   meta: {
@@ -22,7 +23,7 @@ export const ms: typeof en = {
     },
     contact: {
       title: 'Hubungi Kami | {brand}',
-      description: 'Telefon atau WhatsApp {brand} untuk mendapatkan sebut harga. Kami berkhidmat di {area}, Isnin hingga Sabtu.',
+      description: 'Telefon atau WhatsApp {brand} untuk mendapatkan sebut harga. Kami berkhidmat untuk rumah, kedai dan pejabat di sekitar {area}.',
     },
     '404': {
       title: 'Halaman Tidak Dijumpai | {brand}',
@@ -38,7 +39,7 @@ export const ms: typeof en = {
       },
       {
         title: 'Penghawa Dingin Tidak Sejuk? Elektrik Kerap Terputus?',
-        text: 'Bocor air, unit berbunyi bising atau bilik tiada bekalan elektrik? Juruteknik kami akan mengenal pasti puncanya dan membaikinya dengan betul pada kali pertama lagi.',
+        text: 'Bocor air, unit berbunyi bising atau bilik tiada bekalan elektrik? Juruteknik kami akan mengenal pasti puncanya dan membaikinya dengan betul tanpa perlu datang berulang kali.',
       },
     ],
     cta: 'WhatsApp Kami',
@@ -51,12 +52,13 @@ export const ms: typeof en = {
     points: ['Juruteknik Berpengalaman', 'Harga Telus & Berpatutan'],
     text: '{brand} menguruskan kerja penghawa dingin dan elektrik untuk rumah, kedai dan pejabat di sekitar {area}. Daripada memasang unit baharu hinggalah mengesan litar yang kerap terputus, kami tiba tepat pada masanya, menerangkan masalah dengan jelas dan memberikan sebut harga sebelum kerja dimulakan. Tiada caj tersembunyi dan tiada alat ganti yang tidak perlu, hanya kerja yang kemas dan boleh diharap.',
     imgAlt: 'Juruteknik sedang menyervis penghawa dingin',
+    call: 'Telefon',
+    whatsapp: 'WhatsApp Kami',
   },
   stats: {
     customers: 'Pelanggan Berpuas Hati',
     jobs: 'Kerja Disiapkan',
     years: 'Tahun Pengalaman',
-    days: 'Hari Seminggu',
   },
   why: {
     title: 'Mengapa Pelanggan Memilih Kami',
@@ -78,7 +80,7 @@ export const ms: typeof en = {
         id: 'aircond-install',
         group: 'aircond',
         title: 'Pemasangan Penghawa Dingin',
-        text: 'Pembekalan dan pemasangan unit dinding, kaset dan inverter, termasuk kerja paip, pendakap dan saliran yang dibuat dengan betul.',
+        text: 'Pembekalan dan pemasangan unit lekap dinding, kaset dan inverter, termasuk kerja paip, pendakap dan saliran yang dibuat dengan betul.',
       },
       {
         id: 'aircond-service',
@@ -114,7 +116,7 @@ export const ms: typeof en = {
   },
   enquiry: {
     title: 'Dapatkan Sebut Harga Segera',
-    text: 'Beritahu kami keperluan anda dan kami akan membalas di WhatsApp, biasanya dalam masa sejam pada waktu bekerja.',
+    text: 'Beritahu kami keperluan anda dan kami akan membalas di WhatsApp, secepat mungkin.',
     name: 'Nama Anda',
     service: 'Perkhidmatan Diperlukan',
     servicePlaceholder: 'Pilih perkhidmatan',
@@ -129,7 +131,7 @@ export const ms: typeof en = {
     title: 'Apa Kata Pelanggan Kami',
     items: [
       { text: 'Penghawa dingin di bilik utama kami tidak sejuk berminggu-minggu. Mereka menemui kebocoran gas, membaikinya dan menerangkan semuanya. Sangat berpuas hati.', name: 'Aina', area: 'Shah Alam' },
-      { text: 'Saya hubungi mereka pada waktu pagi kerana elektrik kerap terputus, dan mereka datang pada petang yang sama untuk menyelesaikannya. Harganya pun berpatutan.', name: 'Raj', area: 'Petaling Jaya' },
+      { text: 'Saya menghubungi mereka pada waktu pagi kerana elektrik kerap terputus, dan mereka datang pada petang yang sama untuk menyelesaikannya. Harganya pun berpatutan.', name: 'Raj', area: 'Petaling Jaya' },
       { text: 'Cucian kimia untuk tiga unit. Kerjanya sangat bersih dan mereka menutup perabot terlebih dahulu. Pasti akan menggunakan khidmat mereka lagi.', name: 'Mei Ling', area: 'Cheras' },
       { text: 'Mereka membuat pendawaian semula rumah teres lama kami. Kerja kemas, siap tepat pada masanya dan tiada caj mengejut.', name: 'Hafiz', area: 'Kajang' },
     ],
@@ -142,8 +144,6 @@ export const ms: typeof en = {
     whatsapp: 'WhatsApp',
     tiktok: 'TikTok',
     email: 'E-mel',
-    hoursTitle: 'Waktu Operasi',
-    hours: 'Isnin hingga Sabtu, 9.00 pagi hingga 6.00 petang',
     areaTitle: 'Kawasan Perkhidmatan',
     mapTitle: 'Peta kawasan perkhidmatan kami',
   },

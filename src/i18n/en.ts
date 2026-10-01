@@ -3,6 +3,7 @@ export const en = {
   switchLabel: 'BM',
   switchAria: 'Baca dalam Bahasa Melayu',
   menu: 'Toggle navigation',
+  langGroup: 'Language',
   backToTop: 'Back to top',
   waFloat: 'Chat with us on WhatsApp',
   meta: {
@@ -20,7 +21,7 @@ export const en = {
     },
     contact: {
       title: 'Contact Us | {brand}',
-      description: 'Call or WhatsApp {brand} for a quote. Serving {area}, Monday to Saturday.',
+      description: 'Call or WhatsApp {brand} for a quote. Serving homes, shops and offices around {area}.',
     },
     '404': {
       title: 'Page Not Found | {brand}',
@@ -49,12 +50,13 @@ export const en = {
     points: ['Experienced Technicians', 'Fair & Upfront Pricing'],
     text: '{brand} takes care of aircond and electrical work for homes, shops and offices around {area}. From installing a new unit to tracing a tripping circuit, we turn up on time, explain the problem clearly and quote before we start. No hidden charges, no unnecessary parts, just tidy and reliable work.',
     imgAlt: 'Technician servicing an air conditioner',
+    call: 'Call',
+    whatsapp: 'WhatsApp Us',
   },
   stats: {
     customers: 'Happy Customers',
     jobs: 'Jobs Completed',
     years: 'Years of Experience',
-    days: 'Days a Week',
   },
   why: {
     title: 'Why Customers Choose Us',
@@ -112,7 +114,7 @@ export const en = {
   },
   enquiry: {
     title: 'Get a Quick Quote',
-    text: 'Tell us what you need and we will reply on WhatsApp, usually within the hour during working hours.',
+    text: 'Tell us what you need and we will reply on WhatsApp, as soon as we can.',
     name: 'Your Name',
     service: 'Service Needed',
     servicePlaceholder: 'Choose a service',
@@ -140,8 +142,6 @@ export const en = {
     whatsapp: 'WhatsApp',
     tiktok: 'TikTok',
     email: 'Email',
-    hoursTitle: 'Working Hours',
-    hours: 'Monday to Saturday, 9:00 am to 6:00 pm',
     areaTitle: 'Service Area',
     mapTitle: 'Map of our service area',
   },

@@ -7,15 +7,14 @@ const d = t(lang);
 const items = [
     { value: site.stats.customers, suffix: '+', label: d.stats.customers },
     { value: site.stats.jobs, suffix: '+', label: d.stats.jobs },
-    { value: site.stats.years, suffix: '', label: d.stats.years },
-    { value: site.stats.days, suffix: '', label: d.stats.days },
+    { value: site.stats.years, suffix: '+', label: d.stats.years },
 ];
 ---
 <div class="container-fluid facts my-5 py-5" data-parallax="scroll" data-image-src="/img/carousel-1.jpg">
     <div class="container py-5">
         <div class="row g-5">
             {items.map((s, i) => (
-                <div class="col-6 col-lg-3 wow fadeIn" data-wow-delay={`${0.1 + i * 0.2}s`}>
+                <div class="col-sm-4 wow fadeIn" data-wow-delay={`${0.1 + i * 0.2}s`}>
                     <p class="display-4 text-white mb-0"><span data-toggle="counter-up">{s.value}</span>{s.suffix}</p>
                     <span class="text-primary">{s.label}</span>
                 </div>

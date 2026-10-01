@@ -38,7 +38,7 @@ const groups = grouped
                                     <h4 class="h5 mx-4 mb-0">{s.title}</h4>
                                 </div>
                                 <p class="px-4 pt-3 mb-3">{s.text}</p>
-                                <a class="btn btn-link text-accent px-4 pb-3 mt-auto text-start" href={waLink(`${d.enquiry.greeting} ${s.title}`)} target="_blank" rel="noopener">{d.services.cta} &rarr;</a>
+                                <a class="btn btn-link text-accent px-4 pb-3 mt-auto text-start" href={waLink(`${d.enquiry.greeting}\n${d.enquiry.labels.service}: ${s.title}`)} target="_blank" rel="noopener">{d.services.cta} &rarr;</a>
                             </div>
                         </div>
                     ))}
