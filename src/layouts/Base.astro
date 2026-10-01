@@ -34,6 +34,8 @@ const url = (l: Lang) => new URL(localePath(l, page), Astro.site).href;
     <link href="/favicon.svg" rel="icon" type="image/svg+xml">
     <link href="/favicon.ico" rel="icon" sizes="32x32">
     <link href="/apple-touch-icon.png" rel="apple-touch-icon">
+    <link rel="manifest" href="/manifest.webmanifest">
+    <meta name="theme-color" content="#001064">
     <link href="/lib/animate/animate.min.css" rel="stylesheet">
     <link href="/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
     <link href="/css/bootstrap.min.css" rel="stylesheet">
@@ -56,5 +58,6 @@ const url = (l: Lang) => new URL(localePath(l, page), Astro.site).href;
 <script is:inline src="/lib/counterup/counterup.min.js"></script>
 <script is:inline src="/lib/parallax/parallax.min.js"></script>
 <script is:inline src="/js/main.js"></script>
+{import.meta.env.PROD && <script is:inline>if ('serviceWorker' in navigator) window.addEventListener('load', () => navigator.serviceWorker.register('/sw.js'));</script>}
 </body>
 </html>
