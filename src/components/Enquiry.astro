@@ -16,7 +16,7 @@ const d = t(lang);
             </div>
             <div class="col-lg-6 quote-form" data-parallax="scroll" data-image-src="/img/carousel-2.jpg">
                 <div class="h-100 px-4 px-sm-5 pe-lg-0 wow fadeIn" data-wow-delay="0.5s">
-                    <form class="wa-form bg-white p-4 p-sm-5" data-wa={site.whatsapp} data-greeting={d.enquiry.greeting}>
+                    <form class="wa-form bg-white p-4 p-sm-5" data-wa={site.whatsapp} data-greeting={d.enquiry.greeting} data-labels={JSON.stringify(d.enquiry.labels)}>
                         <div class="row g-3">
                             <div class="col-sm-6">
                                 <div class="form-floating">
@@ -56,3 +56,21 @@ const d = t(lang);
         </div>
     </div>
 </div>
+
+<script>
+    for (const form of document.querySelectorAll<HTMLFormElement>('form.wa-form')) {
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const data = new FormData(form);
+            const labels = JSON.parse(form.dataset.labels || '{}');
+            const lines = [form.dataset.greeting || ''];
+            for (const key of ['name', 'service', 'area']) {
+                const value = String(data.get(key) || '').trim();
+                if (value) lines.push(`${labels[key]}: ${value}`);
+            }
+            const message = String(data.get('message') || '').trim();
+            if (message) lines.push(`${labels.message}:`, message);
+            window.open(`https://wa.me/${form.dataset.wa}?text=${encodeURIComponent(lines.join('\n'))}`, '_blank');
+        });
+    }
+</script>

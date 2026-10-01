@@ -8,6 +8,7 @@ import '@fontsource/roboto-slab/latin-800.css';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
 import Icon from '../components/Icon.astro';
+import WhatsAppButton from '../components/WhatsAppButton.astro';
 import { t, localePath, type Lang, type Page } from '../i18n';
 
 const { lang, page } = Astro.props as { lang: Lang; page: Page };
@@ -44,6 +45,7 @@ const url = (l: Lang) => new URL(localePath(l, page), Astro.site).href;
 <slot />
 </main>
 <Footer lang={lang} />
+<WhatsAppButton lang={lang} />
 <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top" aria-label={d.backToTop}><Icon name="arrow-up" /></a>
 <script is:inline src="/lib/jquery/jquery.min.js"></script>
 <script is:inline src="/lib/bootstrap/bootstrap.bundle.min.js"></script>

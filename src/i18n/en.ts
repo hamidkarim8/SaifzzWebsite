@@ -121,6 +121,7 @@ export const en = {
     submit: 'Send via WhatsApp',
     greeting: 'Hi {brand}, I would like to get a quote.',
     note: 'This opens WhatsApp with your message ready to send.',
+    labels: { name: 'Name', service: 'Service', area: 'Area', message: 'Details' },
   },
   testimonials: {
     title: 'What Our Customers Say',

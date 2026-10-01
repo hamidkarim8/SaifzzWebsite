@@ -123,6 +123,7 @@ export const ms: typeof en = {
     submit: 'Hantar melalui WhatsApp',
     greeting: 'Hai {brand}, saya ingin mendapatkan sebut harga.',
     note: 'Butang ini akan membuka WhatsApp dengan mesej anda yang sedia untuk dihantar.',
+    labels: { name: 'Nama', service: 'Perkhidmatan', area: 'Kawasan', message: 'Butiran' },
   },
   testimonials: {
     title: 'Apa Kata Pelanggan Kami',

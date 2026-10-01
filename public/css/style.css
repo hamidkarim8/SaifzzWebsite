@@ -478,3 +478,25 @@
 .testimonial-item blockquote p {
     margin: 0;
 }
+
+.whatsapp-float {
+    position: fixed;
+    left: 20px;
+    bottom: 20px;
+    z-index: 100;
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #25D366;
+    color: #FFFFFF;
+    font-size: 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, .25);
+}
+
+.whatsapp-float:hover {
+    color: #FFFFFF;
+    background: #1EBE5A;
+}

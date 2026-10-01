@@ -1,0 +1,8 @@
+---
+import Icon from './Icon.astro';
+import { waLink } from '../config';
+import { t, type Lang } from '../i18n';
+
+const { lang } = Astro.props as { lang: Lang };
+---
+<a class="whatsapp-float" href={waLink()} target="_blank" rel="noopener" aria-label={t(lang).waFloat}><Icon name="whatsapp" /></a>
