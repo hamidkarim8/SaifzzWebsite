@@ -19,5 +19,5 @@ export const t = (lang: Lang) => dicts[lang];
 export const otherLang = (lang: Lang): Lang => (lang === 'en' ? 'ms' : 'en');
 export const localePath = (lang: Lang, page: Page) => {
   const p = page === 'index' ? '' : page;
-  return lang === 'en' ? `/${p}` : p ? `/ms/${p}` : '/ms';
+  return lang === 'en' ? `/${p}` : `/ms/${p}`;
 };

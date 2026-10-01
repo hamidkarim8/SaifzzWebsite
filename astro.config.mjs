@@ -4,6 +4,12 @@ import sw from './integrations/sw.mjs';
 
 export default defineConfig({
   site: 'https://saifzzaircondelectrical.com.my',
-  build: { format: 'file' },
-  integrations: [sitemap({ filter: (page) => !/\/404\/?$/.test(page) }), sw()],
+  build: { format: 'preserve' },
+  integrations: [
+    sitemap({
+      filter: (page) => !/\/404\/?$/.test(page),
+      serialize: (item) => ({ ...item, url: item.url.replace(/\/ms$/, '/ms/') }),
+    }),
+    sw(),
+  ],
 });

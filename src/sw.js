@@ -2,7 +2,15 @@ const CACHE = 'saifzz-__VERSION__';
 const PRECACHE = self.__PRECACHE__;
 
 self.addEventListener('install', (e) => {
-    e.waitUntil(caches.open(CACHE).then((c) => c.addAll(PRECACHE)).then(() => self.skipWaiting()));
+    e.waitUntil(
+        caches.open(CACHE)
+            .then((c) => Promise.all(PRECACHE.map((u) => fetch(u).then((res) => {
+                if (!res.ok) throw new Error(`${u} ${res.status}`);
+                const body = res.redirected ? new Response(res.body, { status: res.status, headers: res.headers }) : res;
+                return c.put(u.endsWith('/') && u.length > 1 ? clean(u) : u, body);
+            }))))
+            .then(() => self.skipWaiting())
+    );
 });
 
 self.addEventListener('activate', (e) => {

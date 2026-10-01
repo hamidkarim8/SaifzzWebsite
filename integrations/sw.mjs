@@ -4,7 +4,7 @@ import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 
 const skip = (f) => f === 'sw.js' || f === 'robots.txt' || /(\.map|\.woff|\.xml|LICENSE)$/.test(f);
-const toUrl = (f) => (f.endsWith('.html') ? (f === 'index.html' ? '/' : `/${f.slice(0, -5)}`) : `/${f}`);
+const toUrl = (f) => (f.endsWith('index.html') ? `/${f.slice(0, -10)}` : f.endsWith('.html') ? `/${f.slice(0, -5)}` : `/${f}`);
 
 export default function sw() {
     return {
