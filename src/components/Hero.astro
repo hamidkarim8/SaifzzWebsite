@@ -12,19 +12,19 @@ const images = [1, 2];
             {d.hero.slides.map((s, i) => (
                 <div class:list={['carousel-item', { active: i === 0 }]}>
                     <picture>
-                        <source type="image/webp" sizes="100vw" srcset={`/img/carousel-${images[i]}-800.webp 800w, /img/carousel-${images[i]}-1600.webp 1600w`}>
-                        <img class="w-100" src={`/img/carousel-${images[i]}.jpg`} alt="" width="1920" height="1080" fetchpriority={i === 0 ? 'high' : undefined} loading={i === 0 ? undefined : 'lazy'}>
+                        <source type="image/webp" sizes="100vw" srcset={`/img/hero-${images[i]}-800.webp 800w, /img/hero-${images[i]}-1600.webp 1600w`}>
+                        <img class="w-100" src={`/img/hero-${images[i]}.jpg`} alt="" width="1920" height="766" fetchpriority={i === 0 ? 'high' : undefined} loading={i === 0 ? undefined : 'lazy'}>
                     </picture>
                     <div class="carousel-caption">
                         <div class="container">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-8">
+                            <div class="row hero-row">
+                                <div class="col-lg-7 col-xl-6">
                                     {i === 0
                                         ? <h1 class="display-4 text-white mb-4 animated slideInDown">{s.title}</h1>
                                         : <h2 class="display-4 text-white mb-4 animated slideInDown">{s.title}</h2>}
-                                    <p class="fs-5 text-body mb-4 pb-2 mx-sm-5 animated slideInDown">{s.text}</p>
-                                    <div class="d-flex flex-wrap justify-content-center gap-3 animated slideInDown">
-                                        <a href={waLink()} target="_blank" rel="noopener" class="btn btn-primary py-3 px-5">{d.hero.cta}</a>
+                                    <p class="fs-5 text-body mb-4 pb-2 animated slideInDown">{s.text}</p>
+                                    <div class="hero-ctas d-flex flex-wrap gap-3 animated slideInDown">
+                                        <a href={waLink(d.waHello)} target="_blank" rel="noopener" class="btn btn-primary py-3 px-5">{d.hero.cta}</a>
                                         <a href={localePath(lang, 'service')} class="btn btn-outline-light py-3 px-5">{d.hero.cta2}</a>
                                     </div>
                                 </div>

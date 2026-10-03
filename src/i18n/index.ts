@@ -3,7 +3,7 @@ import { en } from './en';
 import { ms } from './ms';
 
 export type Lang = 'en' | 'ms';
-export type Page = 'index' | 'about' | 'service' | 'contact' | '404';
+export type Page = 'index' | 'about' | 'service' | 'media' | 'contact' | '404';
 export type Dict = typeof en;
 
 const fill = (v: unknown): unknown => {

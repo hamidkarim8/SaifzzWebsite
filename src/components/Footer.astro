@@ -5,9 +5,9 @@ import { t, localePath, type Lang, type Page } from '../i18n';
 
 const { lang } = Astro.props as { lang: Lang };
 const d = t(lang);
-const links: Page[] = ['index', 'about', 'service', 'contact'];
+const links: Page[] = ['index', 'about', 'service', 'media', 'contact'];
 const socials = [
-    { href: waLink(), icon: 'whatsapp', label: 'WhatsApp' },
+    { href: waLink(d.waHello), icon: 'whatsapp', label: 'WhatsApp' },
     { href: site.tiktok, icon: 'tiktok', label: 'TikTok' },
     { href: site.facebook, icon: 'facebook', label: 'Facebook' },
     { href: site.instagram, icon: 'instagram', label: 'Instagram' },
@@ -17,8 +17,9 @@ const socials = [
     <div class="container py-5">
         <div class="row g-5">
             <div class="col-lg-5 col-md-12">
-                <p class="h3 text-white mb-4 footer-brand"><img class="img-fluid me-3" src="/img/icon/icon-02-light.png" alt="" width="60" height="60">{site.name}</p>
+                <p class="h3 text-white mb-4 footer-brand"><img class="img-fluid me-3" src="/img/logo.png" alt="" width="60" height="60">{site.name}</p>
                 <p>{d.footer.about}</p>
+                <p class="footer-creds small"><Icon name="certificate" class="me-2" />{d.footer.licence}<br><Icon name="id" class="me-2" />{d.footer.reg} {site.regNo}</p>
                 <div class="d-flex gap-2">
                     {socials.map((s) => (
                         <a class="btn btn-square rounded-circle" href={s.href} target="_blank" rel="noopener" aria-label={s.label}><Icon name={s.icon} /></a>
@@ -28,7 +29,7 @@ const socials = [
             <div class="col-lg-4 col-md-6">
                 <h2 class="h5 text-light mb-4">{d.footer.contactTitle}</h2>
                 <p><a class="footer-contact" href={phoneHref}><Icon name="phone" class="me-3" />{site.phone}</a></p>
-                <p><a class="footer-contact" href={waLink()} target="_blank" rel="noopener"><Icon name="whatsapp" class="me-3" />WhatsApp</a></p>
+                <p><a class="footer-contact" href={waLink(d.waHello)} target="_blank" rel="noopener"><Icon name="whatsapp" class="me-3" />WhatsApp</a></p>
                 {site.email && <p><a class="footer-contact" href={`mailto:${site.email}`}><Icon name="envelope" class="me-3" />{site.email}</a></p>}
                 <p><Icon name="location" class="me-3" />{site.area}</p>
             </div>

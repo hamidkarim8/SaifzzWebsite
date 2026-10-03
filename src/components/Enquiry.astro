@@ -8,15 +8,15 @@ const d = t(lang);
 <div class="container-fluid overflow-hidden my-5 px-lg-0" id={id}>
     <div class="container quote px-lg-0">
         <div class="row g-0 mx-lg-0">
-            <div class="col-lg-6 quote-text" data-parallax="scroll" data-image-src="/img/carousel-1.jpg">
+            <div class="col-lg-6 quote-text" data-parallax="scroll" data-image-src="/img/bg-quote.jpg">
                 <div class="h-100 px-4 px-sm-5 ps-lg-0 wow fadeIn" data-wow-delay="0.1s">
                     <h2 class="text-white mb-4">{d.enquiry.title}</h2>
                     <p class="text-light mb-0">{d.enquiry.text}</p>
                 </div>
             </div>
-            <div class="col-lg-6 quote-form" data-parallax="scroll" data-image-src="/img/carousel-2.jpg">
+            <div class="col-lg-6 quote-form" data-parallax="scroll" data-image-src="/img/bg-quote-form.jpg">
                 <div class="h-100 px-4 px-sm-5 pe-lg-0 wow fadeIn" data-wow-delay="0.5s">
-                    <form class="wa-form bg-white p-4 p-sm-5" data-wa={site.whatsapp} data-greeting={d.enquiry.greeting} data-labels={JSON.stringify(d.enquiry.labels)}>
+                    <form class="wa-form bg-white p-4 p-sm-5" data-wa={site.whatsapp} data-greeting={d.enquiry.greeting} data-tag={site.waTag} data-labels={JSON.stringify(d.enquiry.labels)}>
                         <div class="row g-3">
                             <div class="col-sm-6">
                                 <div class="form-floating">
@@ -70,6 +70,7 @@ const d = t(lang);
             }
             const message = String(data.get('message') || '').trim();
             if (message) lines.push(`${labels.message}:`, message);
+            lines.push('', form.dataset.tag || '');
             window.open(`https://wa.me/${form.dataset.wa}?text=${encodeURIComponent(lines.join('\n'))}`, '_blank');
         });
     }

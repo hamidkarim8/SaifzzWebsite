@@ -6,6 +6,8 @@ export const en = {
   langGroup: 'Language',
   backToTop: 'Back to top',
   waFloat: 'Chat with us on WhatsApp',
+  ttFloat: 'Follow us on TikTok',
+  waHello: 'Hi {brand}, I would like to ask about your services.',
   meta: {
     index: {
       title: '{brand} | Aircond & Electrical Services',
@@ -19,6 +21,10 @@ export const en = {
       title: 'Services | {brand}',
       description: 'Aircond installation, servicing, chemical wash, troubleshooting and repair. Electrical wiring, rewiring, tripping and short circuit repair, lights and fans installation.',
     },
+    media: {
+      title: 'Media | {brand}',
+      description: 'Watch real aircond and electrical jobs by {brand} on TikTok: installations, chemical washes, repairs and more.',
+    },
     contact: {
       title: 'Contact Us | {brand}',
       description: 'Call or WhatsApp {brand} for a quote. Serving homes, shops and offices around {area}.',
@@ -28,7 +34,7 @@ export const en = {
       description: 'The page you are looking for does not exist.',
     },
   },
-  nav: { index: 'Home', about: 'About Us', service: 'Services', contact: 'Contact' },
+  nav: { index: 'Home', about: 'About Us', service: 'Services', media: 'Media', contact: 'Contact' },
   hero: {
     slides: [
       {
@@ -52,6 +58,11 @@ export const en = {
     imgAlt: 'Technician servicing an air conditioner',
     call: 'Call',
     whatsapp: 'WhatsApp Us',
+  },
+  creds: {
+    title: 'Licensed & Registered',
+    licence: 'Licences',
+    reg: 'Registration No.',
   },
   stats: {
     customers: 'Happy Customers',
@@ -134,6 +145,11 @@ export const en = {
       { text: 'They rewired our old terrace house. Tidy job, finished on time and no surprises on the bill.', name: 'Hafiz', area: 'Kajang' },
     ],
   },
+  media: {
+    heading: 'Watch Our Work on TikTok',
+    text: 'Real jobs from our team: installations, chemical washes, repairs and more. Follow us for new videos.',
+    cta: 'View All on TikTok',
+  },
   contact: {
     title: 'Contact Us',
     heading: 'Talk to Us',
@@ -152,6 +168,8 @@ export const en = {
     followTitle: 'Follow Us',
     rights: 'All rights reserved.',
     credit: 'Template by',
+    licence: 'Licensed: CSTP & PW4',
+    reg: 'Registration No.:',
   },
   notFound: {
     title: 'Page Not Found',

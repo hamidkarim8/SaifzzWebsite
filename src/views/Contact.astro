@@ -10,7 +10,7 @@ const { lang } = Astro.props as { lang: Lang };
 const d = t(lang);
 const actions = [
     { href: phoneHref, icon: 'phone', label: d.contact.call, value: site.phone, external: false },
-    { href: waLink(), icon: 'whatsapp', label: d.contact.whatsapp, value: waDisplay, external: true },
+    { href: waLink(d.waHello), icon: 'whatsapp', label: d.contact.whatsapp, value: waDisplay, external: true },
     { href: site.tiktok, icon: 'tiktok', label: d.contact.tiktok, value: tiktokHandle, external: true },
 ];
 const mapSrc = `https://www.google.com/maps?q=${encodeURIComponent(site.mapQuery)}&z=9&output=embed`;

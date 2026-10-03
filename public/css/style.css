@@ -238,7 +238,7 @@
 }
 
 .page-header {
-    background: linear-gradient(rgba(1, 10, 53, .8), rgba(1, 10, 53, .8)), url(../img/carousel-1.jpg) center center no-repeat;
+    background: linear-gradient(rgba(1, 10, 53, .8), rgba(1, 10, 53, .8)), url(../img/bg-header.jpg) center center no-repeat;
     background-size: cover;
 }
 
@@ -494,26 +494,45 @@
     margin: 0;
 }
 
-.whatsapp-float {
+.float-btns {
     position: fixed;
     left: 20px;
     bottom: 20px;
     z-index: 100;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.float-btn {
     width: 56px;
     height: 56px;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    background: #25D366;
     color: #FFFFFF;
     font-size: 30px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, .25);
 }
 
+.whatsapp-float {
+    background: #25D366;
+}
+
 .whatsapp-float:hover {
     color: #FFFFFF;
     background: #1EBE5A;
+}
+
+.tiktok-float {
+    background: #000000;
+    font-size: 26px;
+}
+
+.tiktok-float:hover {
+    color: #FFFFFF;
+    background: #25262B;
 }
 
 .navbar .navbar-toggler {
@@ -623,4 +642,102 @@ body,
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+#header-carousel .carousel-item img {
+    object-position: 72% top;
+}
+
+#header-carousel .hero-row {
+    justify-content: center;
+}
+
+#header-carousel .hero-ctas {
+    justify-content: center;
+}
+
+@media (min-width: 769px) {
+    #header-carousel .carousel-caption {
+        text-align: left;
+        background: linear-gradient(90deg, rgba(1, 10, 53, .92) 0%, rgba(1, 10, 53, .85) 45%, rgba(1, 10, 53, .35) 62%, rgba(1, 10, 53, 0) 80%);
+    }
+
+    #header-carousel .hero-row,
+    #header-carousel .hero-ctas {
+        justify-content: flex-start;
+    }
+
+    #header-carousel .carousel-item img {
+        object-position: right top;
+    }
+}
+
+@media (min-width: 769px) {
+    #header-carousel .carousel-control-prev,
+    #header-carousel .carousel-control-next {
+        width: 5rem;
+    }
+
+    #header-carousel .carousel-caption .container {
+        padding-left: 6rem;
+        padding-right: 6rem;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1199.98px) {
+    #header-carousel .carousel-caption {
+        background: linear-gradient(90deg, rgba(1, 10, 53, .92) 0%, rgba(1, 10, 53, .85) 55%, rgba(1, 10, 53, .5) 80%, rgba(1, 10, 53, .3) 100%);
+    }
+}
+
+.creds .badge {
+    font-size: .8rem;
+    letter-spacing: .03em;
+}
+
+.footer .footer-creds {
+    line-height: 1.9;
+}
+
+.tiktok-wrap {
+    max-width: 780px;
+    min-height: 400px;
+}
+
+.tiktok-wrap .tiktok-embed {
+    margin: 0 auto;
+}
+
+.tiktok-wrap section a {
+    display: inline-flex !important;
+    align-items: center;
+    min-height: 48px;
+}
+
+.creds .btn-lg-square .icon {
+    font-size: 1.4rem;
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    .navbar.px-4 {
+        padding-left: 1.5rem !important;
+        padding-right: 1.5rem !important;
+    }
+
+    .navbar .navbar-nav .nav-link {
+        margin-left: 12px;
+    }
+
+    .navbar .navbar-nav.pe-4 {
+        padding-right: 12px !important;
+    }
+
+    .navbar .navbar-brand img {
+        max-height: 48px;
+        margin-right: .75rem !important;
+    }
+
+    .navbar .navbar-brand .h1 {
+        font-size: 1.2rem;
+    }
 }

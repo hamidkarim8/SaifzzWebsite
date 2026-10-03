@@ -5,12 +5,12 @@ import { t, localePath, type Lang, type Page } from '../i18n';
 
 const { lang, page } = Astro.props as { lang: Lang; page: Page };
 const d = t(lang);
-const links: Page[] = ['index', 'about', 'service', 'contact'];
+const links: Page[] = ['index', 'about', 'service', 'media', 'contact'];
 const langs: { code: Lang; label: string }[] = [{ code: 'en', label: 'EN' }, { code: 'ms', label: 'BM' }];
 ---
 <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top px-4 px-lg-5">
     <a href={localePath(lang, 'index')} class="navbar-brand d-flex align-items-center">
-        <span class="h1 m-0"><img class="img-fluid me-3" src="/img/icon/icon-02-primary.png" alt="" width="50" height="50">{site.name}</span>
+        <span class="h1 m-0"><img class="img-fluid me-3" src="/img/logo.png" alt="" width="60" height="60">{site.name}</span>
     </a>
     <div class="lang-toggle order-lg-last ms-auto ms-lg-3" role="group" aria-label={d.langGroup}>
         {langs.map((l) => l.code === lang
@@ -27,7 +27,7 @@ const langs: { code: Lang; label: string }[] = [{ code: 'en', label: 'EN' }, { c
             ))}
         </div>
         <div class="d-flex align-items-center gap-2 py-3 py-lg-0">
-            <a class="btn btn-square rounded-circle bg-light text-primary" href={waLink()} target="_blank" rel="noopener" aria-label="WhatsApp"><Icon name="whatsapp" /></a>
+            <a class="btn btn-square rounded-circle bg-light text-primary" href={waLink(d.waHello)} target="_blank" rel="noopener" aria-label="WhatsApp"><Icon name="whatsapp" /></a>
             <a class="btn btn-square rounded-circle bg-light text-primary" href={site.tiktok} target="_blank" rel="noopener" aria-label="TikTok"><Icon name="tiktok" /></a>
         </div>
     </div>

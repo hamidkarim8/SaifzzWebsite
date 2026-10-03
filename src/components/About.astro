@@ -24,9 +24,17 @@ const pointIcons = ['/img/icon/icon-07-primary.png', '/img/icon/icon-09-primary.
                         ))}
                     </div>
                     <p class="mb-4">{d.about.text}</p>
+                    <div class="creds d-flex align-items-center bg-light p-3">
+                        <span class="btn-lg-square bg-primary rounded-circle text-dark flex-shrink-0 me-3"><Icon name="certificate" /></span>
+                        <div>
+                            <h3 class="h6 mb-1">{d.creds.title}</h3>
+                            <p class="mb-1">{d.creds.licence}: {site.licences.map((l) => <span class="badge bg-dark me-1">{l}</span>)}</p>
+                            <p class="small mb-0">{d.creds.reg}: {site.regNo}</p>
+                        </div>
+                    </div>
                     <div class="about-cta d-flex flex-wrap gap-3 border-top mt-4 pt-4">
                         <a class="btn btn-primary py-3 px-4" href={phoneHref}><Icon name="phone" class="me-2" />{d.about.call} {site.phone}</a>
-                        <a class="btn btn-whatsapp py-3 px-4" href={waLink()} target="_blank" rel="noopener"><Icon name="whatsapp" class="me-2" />{d.about.whatsapp}</a>
+                        <a class="btn btn-whatsapp py-3 px-4" href={waLink(d.waHello)} target="_blank" rel="noopener"><Icon name="whatsapp" class="me-2" />{d.about.whatsapp}</a>
                     </div>
                 </div>
             </div>

@@ -1,0 +1,29 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHeader from '../components/PageHeader.astro';
+import Icon from '../components/Icon.astro';
+import { site, tiktokHandle } from '../config';
+import { t, type Lang } from '../i18n';
+
+const { lang } = Astro.props as { lang: Lang };
+const d = t(lang);
+const user = tiktokHandle.slice(1);
+---
+<Base lang={lang} page="media">
+<PageHeader lang={lang} title={d.nav.media} />
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="text-center mx-auto mb-5" style="max-width: 600px;">
+            <h2 class="display-6 mb-3">{d.media.heading}</h2>
+            <p class="mb-4">{d.media.text}</p>
+            <a class="btn btn-primary py-3 px-4" href={site.tiktok} target="_blank" rel="noopener"><Icon name="tiktok" class="me-2" />{d.media.cta}</a>
+        </div>
+        <div class="tiktok-wrap mx-auto">
+            <blockquote class="tiktok-embed" cite={site.tiktok} data-unique-id={user} data-embed-type="creator" style="max-width: 780px; min-width: 288px;">
+                <section><a target="_blank" rel="noopener" href={`${site.tiktok}?refer=creator_embed`}>{tiktokHandle}</a></section>
+            </blockquote>
+        </div>
+    </div>
+</div>
+<script is:inline async src="https://www.tiktok.com/embed.js"></script>
+</Base>

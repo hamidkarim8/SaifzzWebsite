@@ -8,6 +8,8 @@ export const ms: typeof en = {
   langGroup: 'Bahasa',
   backToTop: 'Kembali ke atas',
   waFloat: 'Berbual dengan kami di WhatsApp',
+  ttFloat: 'Ikuti kami di TikTok',
+  waHello: 'Hai {brand}, saya ingin bertanya tentang perkhidmatan anda.',
   meta: {
     index: {
       title: '{brand} | Servis Penghawa Dingin & Elektrik',
@@ -21,6 +23,10 @@ export const ms: typeof en = {
       title: 'Perkhidmatan | {brand}',
       description: 'Pemasangan, servis, cucian kimia, diagnosis kerosakan dan pembaikan penghawa dingin. Pendawaian, pendawaian semula, pembaikan litar pintas dan bekalan elektrik terputus, serta pemasangan lampu dan kipas.',
     },
+    media: {
+      title: 'Media | {brand}',
+      description: 'Tonton kerja penghawa dingin dan elektrik sebenar oleh {brand} di TikTok: pemasangan, cuci kimia, pembaikan dan banyak lagi.',
+    },
     contact: {
       title: 'Hubungi Kami | {brand}',
       description: 'Telefon atau WhatsApp {brand} untuk mendapatkan sebut harga. Kami berkhidmat untuk rumah, kedai dan pejabat di sekitar {area}.',
@@ -30,7 +36,7 @@ export const ms: typeof en = {
       description: 'Halaman yang anda cari tidak wujud.',
     },
   },
-  nav: { index: 'Utama', about: 'Tentang Kami', service: 'Perkhidmatan', contact: 'Hubungi Kami' },
+  nav: { index: 'Utama', about: 'Tentang Kami', service: 'Perkhidmatan', media: 'Media', contact: 'Hubungi Kami' },
   hero: {
     slides: [
       {
@@ -54,6 +60,11 @@ export const ms: typeof en = {
     imgAlt: 'Juruteknik sedang menyervis penghawa dingin',
     call: 'Telefon',
     whatsapp: 'WhatsApp Kami',
+  },
+  creds: {
+    title: 'Berlesen dan Berdaftar',
+    licence: 'Lesen',
+    reg: 'No. Pendaftaran',
   },
   stats: {
     customers: 'Pelanggan Berpuas Hati',
@@ -136,6 +147,11 @@ export const ms: typeof en = {
       { text: 'Mereka membuat pendawaian semula rumah teres lama kami. Kerja kemas, siap tepat pada masanya dan tiada caj mengejut.', name: 'Hafiz', area: 'Kajang' },
     ],
   },
+  media: {
+    heading: 'Tonton Kerja Kami di TikTok',
+    text: 'Kerja sebenar pasukan kami: pemasangan, cuci kimia, pembaikan dan banyak lagi. Ikuti kami untuk video terbaharu.',
+    cta: 'Lihat Semua di TikTok',
+  },
   contact: {
     title: 'Hubungi Kami',
     heading: 'Berbincang dengan Kami',
@@ -154,6 +170,8 @@ export const ms: typeof en = {
     followTitle: 'Ikuti Kami',
     rights: 'Hak cipta terpelihara.',
     credit: 'Templat oleh',
+    licence: 'Memiliki Lesen CSTP dan PW4',
+    reg: 'No. Pendaftaran:',
   },
   notFound: {
     title: 'Halaman Tidak Dijumpai',
