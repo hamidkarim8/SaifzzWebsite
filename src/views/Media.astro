@@ -15,15 +15,38 @@ const user = tiktokHandle.slice(1);
     <div class="container">
         <div class="text-center mx-auto mb-5" style="max-width: 600px;">
             <h2 class="display-6 mb-3">{d.media.heading}</h2>
-            <p class="mb-4">{d.media.text}</p>
-            <a class="btn btn-primary py-3 px-4" href={site.tiktok} target="_blank" rel="noopener"><Icon name="tiktok" class="me-2" />{d.media.cta}</a>
+            <p class="mb-0">{d.media.text}</p>
         </div>
-        <div class="tiktok-wrap mx-auto">
+        <div class="tiktok-wrap mx-auto is-loading">
+            <p class="tiktok-loading text-center py-5 mb-0" role="status"><span class="spinner-border spinner-border-sm text-primary me-2" aria-hidden="true"></span>{d.media.loading}</p>
+            <div class="tiktok-fallback text-center bg-light p-4 p-sm-5">
+                <span class="btn-lg-square rounded-circle bg-dark text-white mx-auto mb-3"><Icon name="tiktok" /></span>
+                <h3 class="h5 mb-2">{d.media.fallbackTitle}</h3>
+                <p class="mb-4">{d.media.fallbackText}</p>
+                <a class="btn btn-primary py-3 px-4" href={site.tiktok} target="_blank" rel="noopener"><Icon name="tiktok" class="me-2" />{d.media.fallbackCta}</a>
+            </div>
             <blockquote class="tiktok-embed" cite={site.tiktok} data-unique-id={user} data-embed-type="creator" style="max-width: 780px; min-width: 288px;">
                 <section><a target="_blank" rel="noopener" href={`${site.tiktok}?refer=creator_embed`}>{tiktokHandle}</a></section>
             </blockquote>
         </div>
     </div>
 </div>
-<script is:inline async src="https://www.tiktok.com/embed.js"></script>
+<script is:inline>
+    (() => {
+        const wrap = document.querySelector('.tiktok-wrap');
+        const show = (state) => { wrap.classList.remove('is-loading', 'is-ready', 'is-failed'); wrap.classList.add(state); };
+        addEventListener('message', (e) => {
+            if (e.origin !== 'https://www.tiktok.com') return;
+            let data = e.data;
+            try { if (typeof data === 'string') data = JSON.parse(data); } catch { return; }
+            if (data && data.height) show('is-ready');
+        });
+        const s = document.createElement('script');
+        s.src = 'https://www.tiktok.com/embed.js';
+        s.async = true;
+        s.onerror = () => show('is-failed');
+        document.body.appendChild(s);
+        setTimeout(() => { if (!wrap.classList.contains('is-ready')) show('is-failed'); }, 10000);
+    })();
+</script>
 </Base>

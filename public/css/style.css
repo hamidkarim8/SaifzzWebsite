@@ -700,12 +700,37 @@ body,
 }
 
 .tiktok-wrap {
+    position: relative;
     max-width: 780px;
-    min-height: 400px;
 }
 
 .tiktok-wrap .tiktok-embed {
     margin: 0 auto;
+}
+
+.tiktok-loading,
+.tiktok-fallback {
+    display: none;
+}
+
+.tiktok-wrap.is-loading .tiktok-loading,
+.tiktok-wrap.is-failed .tiktok-fallback {
+    display: block;
+}
+
+.tiktok-wrap.is-loading .tiktok-embed,
+.tiktok-wrap.is-failed .tiktok-embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.tiktok-fallback .btn-lg-square {
+    display: flex;
+    font-size: 1.5rem;
 }
 
 .tiktok-wrap section a {

@@ -148,7 +148,10 @@ export const en = {
   media: {
     heading: 'Watch Our Work on TikTok',
     text: 'Real jobs from our team: installations, chemical washes, repairs and more. Follow us for new videos.',
-    cta: 'View All on TikTok',
+    loading: 'Loading TikTok videos...',
+    fallbackTitle: 'TikTok videos cannot load right now',
+    fallbackText: 'TikTok is busy at the moment. Please try again later, or watch our videos directly on TikTok.',
+    fallbackCta: 'Watch on TikTok',
   },
   contact: {
     title: 'Contact Us',

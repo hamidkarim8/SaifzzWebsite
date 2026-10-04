@@ -150,7 +150,10 @@ export const ms: typeof en = {
   media: {
     heading: 'Tonton Kerja Kami di TikTok',
     text: 'Kerja sebenar pasukan kami: pemasangan, cuci kimia, pembaikan dan banyak lagi. Ikuti kami untuk video terbaharu.',
-    cta: 'Lihat Semua di TikTok',
+    loading: 'Memuatkan video TikTok...',
+    fallbackTitle: 'Video TikTok tidak dapat dimuatkan buat masa ini',
+    fallbackText: 'TikTok sedang sibuk sekarang. Sila cuba lagi nanti atau tonton video kami terus di TikTok.',
+    fallbackCta: 'Tonton di TikTok',
   },
   contact: {
     title: 'Hubungi Kami',
