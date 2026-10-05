@@ -13,7 +13,7 @@ const actions = [
     { href: waLink(d.waHello), icon: 'whatsapp', label: d.contact.whatsapp, value: waDisplay, external: true },
     { href: site.tiktok, icon: 'tiktok', label: d.contact.tiktok, value: tiktokHandle, external: true },
 ];
-const mapSrc = `https://www.google.com/maps?q=${encodeURIComponent(site.mapQuery)}&z=9&output=embed`;
+const mapSrc = `https://www.google.com/maps?q=${encodeURIComponent(site.mapQuery)}&z=11&output=embed`;
 ---
 <Base lang={lang} page="contact">
 <PageHeader lang={lang} title={d.contact.title} />
@@ -41,7 +41,7 @@ const mapSrc = `https://www.google.com/maps?q=${encodeURIComponent(site.mapQuery
                 <span class="btn-lg-square bg-primary rounded-circle text-white flex-shrink-0 me-3"><Icon name="location" /></span>
                 <div>
                     <h3 class="h5 mb-0">{d.contact.areaTitle}</h3>
-                    <p class="mb-0">{site.area}</p>
+                    <p class="mb-0">{site.area[lang]}</p>
                 </div>
             </div>
             <iframe class="w-100 border-0 rounded" style="height: 380px;" src={mapSrc} title={d.contact.mapTitle} loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>

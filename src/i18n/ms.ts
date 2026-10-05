@@ -12,7 +12,7 @@ export const ms: typeof en = {
   waHello: 'Hai {brand}, saya ingin bertanya tentang perkhidmatan anda.',
   meta: {
     index: {
-      title: '{brand} | Servis Penghawa Dingin & Elektrik',
+      title: 'Servis Aircond & Elektrik di Kajang, Bangi & Semenyih | {brand}',
       description: 'Pemasangan, servis dan pembaikan penghawa dingin (aircond) serta pendawaian dan pembaikan elektrik di {area}. Respons pantas, harga berpatutan. WhatsApp kami hari ini.',
     },
     about: {
@@ -20,8 +20,8 @@ export const ms: typeof en = {
       description: 'Kenali {brand}, juruteknik tempatan untuk kerja penghawa dingin dan elektrik di rumah, kedai dan pejabat sekitar {area}.',
     },
     service: {
-      title: 'Perkhidmatan | {brand}',
-      description: 'Pemasangan, servis, cucian kimia, diagnosis kerosakan dan pembaikan penghawa dingin. Pendawaian, pendawaian semula, pembaikan litar pintas dan bekalan elektrik terputus, serta pemasangan lampu dan kipas.',
+      title: 'Perkhidmatan Penghawa Dingin & Elektrik | {brand}',
+      description: 'Pemasangan, servis, cucian kimia, diagnosis kerosakan dan pembaikan penghawa dingin. Pendawaian, pendawaian semula, pembaikan litar pintas dan bekalan elektrik terputus, serta pemasangan lampu dan kipas. Kami berkhidmat di sekitar {area}.',
     },
     media: {
       title: 'Media | {brand}',

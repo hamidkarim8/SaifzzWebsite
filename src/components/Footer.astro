@@ -31,7 +31,7 @@ const socials = [
                 <p><a class="footer-contact" href={phoneHref}><Icon name="phone" class="me-3" />{site.phone}</a></p>
                 <p><a class="footer-contact" href={waLink(d.waHello)} target="_blank" rel="noopener"><Icon name="whatsapp" class="me-3" />WhatsApp</a></p>
                 {site.email && <p><a class="footer-contact" href={`mailto:${site.email}`}><Icon name="envelope" class="me-3" />{site.email}</a></p>}
-                <p><Icon name="location" class="me-3" />{site.area}</p>
+                <p><Icon name="location" class="me-3" />{site.area[lang]}</p>
             </div>
             <div class="col-lg-3 col-md-6">
                 <h2 class="h5 text-light mb-4">{d.footer.linksTitle}</h2>

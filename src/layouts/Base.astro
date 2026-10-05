@@ -16,6 +16,22 @@ const { lang, page } = Astro.props as { lang: Lang; page: Page };
 const d = t(lang);
 const meta = d.meta[page];
 const url = (l: Lang) => new URL(localePath(l, page), Astro.site).href;
+const abs = (p: string) => new URL(p, Astro.site).href;
+const ogImage = abs('/img/og-image.jpg');
+const business = page === 'index' && {
+  '@context': 'https://schema.org',
+  '@type': ['HVACBusiness', 'Electrician'],
+  '@id': `${abs('/')}#business`,
+  name: site.name,
+  url: url(lang),
+  logo: abs('/img/logo.png'),
+  image: ogImage,
+  description: meta.description,
+  telephone: `+${site.whatsapp}`,
+  address: { '@type': 'PostalAddress', addressLocality: 'Kajang', addressRegion: 'Selangor', addressCountry: 'MY' },
+  areaServed: site.areaServed.map((name) => ({ '@type': 'City', name })),
+  sameAs: [site.tiktok, site.facebook, site.instagram].filter(Boolean),
+};
 ---
 <!DOCTYPE html>
 <html lang={lang}>
@@ -31,8 +47,19 @@ const url = (l: Lang) => new URL(localePath(l, page), Astro.site).href;
             <link rel="alternate" hreflang="en" href={url('en')}>
             <link rel="alternate" hreflang="ms" href={url('ms')}>
             <link rel="alternate" hreflang="x-default" href={url('en')}>
+            <meta property="og:type" content="website">
+            <meta property="og:site_name" content={site.name}>
+            <meta property="og:title" content={meta.title}>
+            <meta property="og:description" content={meta.description}>
+            <meta property="og:url" content={url(lang)}>
+            <meta property="og:image" content={ogImage}>
+            <meta property="og:image:width" content="1200">
+            <meta property="og:image:height" content="630">
+            <meta property="og:locale" content={lang === 'en' ? 'en_MY' : 'ms_MY'}>
+            <meta name="twitter:card" content="summary_large_image">
         </Fragment>
     )}
+    {business && <script type="application/ld+json" set:html={JSON.stringify(business)} />}
     <link href="/favicon-96.png" rel="icon" type="image/png" sizes="96x96">
     <link href="/favicon.ico" rel="icon" sizes="32x32">
     <link href="/apple-touch-icon.png" rel="apple-touch-icon">

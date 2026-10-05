@@ -10,7 +10,7 @@ export const en = {
   waHello: 'Hi {brand}, I would like to ask about your services.',
   meta: {
     index: {
-      title: '{brand} | Aircond & Electrical Services',
+      title: 'Aircond & Electrical Services in Kajang, Bangi & Semenyih | {brand}',
       description: 'Aircond installation, servicing and repair plus electrical wiring and troubleshooting in {area}. Fast response, fair prices. WhatsApp us today.',
     },
     about: {
@@ -18,8 +18,8 @@ export const en = {
       description: 'Meet {brand}, local technicians for aircond and electrical work at homes, shops and offices around {area}.',
     },
     service: {
-      title: 'Services | {brand}',
-      description: 'Aircond installation, servicing, chemical wash, troubleshooting and repair. Electrical wiring, rewiring, tripping and short circuit repair, lights and fans installation.',
+      title: 'Aircond & Electrical Services | {brand}',
+      description: 'Aircond installation, servicing, chemical wash, troubleshooting and repair. Electrical wiring, rewiring, tripping and short circuit repair, lights and fans installation. Serving {area}.',
     },
     media: {
       title: 'Media | {brand}',
