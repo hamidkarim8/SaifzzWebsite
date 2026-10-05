@@ -1,6 +1,10 @@
 {
   "name": "saifzzaircondelectrical",
   "compatibility_date": "2026-10-01",
+  "routes": [
+    { "pattern": "saifzzaircondelectrical.com.my", "custom_domain": true },
+    { "pattern": "www.saifzzaircondelectrical.com.my", "custom_domain": true }
+  ],
   "assets": {
     "directory": "./dist",
     "not_found_handling": "404-page"
