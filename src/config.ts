@@ -1,6 +1,6 @@
 export const site = {
   name: 'Saifzz Aircond Electrical',
-  live: false,
+  live: true,
   phone: '+60 16-281 5887',
   whatsapp: '60162815887',
   email: '',
